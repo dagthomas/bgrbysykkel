@@ -32,5 +32,5 @@ Since oslobysykkel.no API does not allow CORS - I download the .json data via CU
 
  * Show all locations, with ID
  * Show default view of stations surrounding our offices
- * Show view based on user input -
+ * Show view based on user input
  <br>
