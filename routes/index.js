@@ -7,12 +7,15 @@ require('dotenv').config();
 // Get client-identifier from https://developer.oslobysykkel.no/api - put in .env file
 let id = process.env.API_KEY, url = process.env.URL;
 
-router.get('/stasjoner/:stasjoner', function(req, res, next) {
+router.get('/stasjoner/:stasjoner', function(req, res) {
+// Henter json data fra filer 
 var avail = JSON.parse(fs.readFileSync('avail.json', 'utf8'));
 var stations = JSON.parse(fs.readFileSync('stations.json', 'utf8'));
+  // Bruker cURL.exe til å hente data, da CORS ikke er enablet på API lokasjonen
 	exec(
 		'curl -H '+id+' '+url
 	)
+	  // Skriver ny data til fil, og oppdaterer array
 		.then(
 			function(out) {
         fs.writeFile('avail.json', out.stdout, 'utf8', function readFileCallback(err) {});
@@ -22,6 +25,7 @@ var stations = JSON.parse(fs.readFileSync('stations.json', 'utf8'));
 				console.error(err);
 			}
 		)
+		// Splitter stasjonsurl på "-" - og genererer stasjon og statusinfo - som videresnedes til view.
 		.then(function() {
 			var stasjonsId = req.params.stasjoner.split('-');
 
@@ -46,7 +50,7 @@ var stations = JSON.parse(fs.readFileSync('stations.json', 'utf8'));
       
     });
 });
-router.get('/', function(req, res, next) {
+router.get('/', function(res) {
   var avail = JSON.parse(fs.readFileSync('avail.json', 'utf8'));
   var stations = JSON.parse(fs.readFileSync('stations.json', 'utf8'));
 	exec(
@@ -81,17 +85,12 @@ router.get('/', function(req, res, next) {
 			});
 		});
 });
-router.get('/liste', function(req, res, next) {
+router.get('/liste', function(res) {
   var stations = JSON.parse(fs.readFileSync('stations.json', 'utf8'));
 	res.render('liste', {
     title: 'BYSYKKEL', 
     stat: null,
     liste: stations
 	});
-});
-router.post('/getstasjoner', function(req, res) {
-	console.log("clicked");
-	var stasjoner = req.body.idliste.replace(/\s+/g, '').replace(/,/g, '-');
-  res.redirect(req.baseUrl + '/stasjoner/'+stasjoner);
 });
 module.exports = router;
