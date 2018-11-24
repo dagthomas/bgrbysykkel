@@ -1,19 +1,19 @@
 # BGR Bysykkel  v1.0.0
 
 ### Default view ('/'):
-![alt text](https://raw.githubusercontent.com/dagthomas/bgrsykkel/master/readme/default_site.jpg "Default Site")
+![alt text](https://raw.githubusercontent.com/dagthomas/bgrbysykkel/master/readme/default_site.jpg "Default Site")
 
 ### List view ('/liste'):
-![alt text](https://raw.githubusercontent.com/dagthomas/bgrsykkel/master/readme/list_of_stations.jpg "List of Stations")
+![alt text](https://raw.githubusercontent.com/dagthomas/bgrbysykkel/master/readme/list_of_stations.jpg "List of Stations")
 
 ### Stations view ('/stations/xxx-xxx-xxx'):
-![alt text](https://raw.githubusercontent.com/dagthomas/bgrsykkel/master/readme/multiple_stations.jpg "Selected Stations")
+![alt text](https://raw.githubusercontent.com/dagthomas/bgrbysykkel/master/readme/multiple_stations.jpg "Selected Stations")
 
 ### Multiple Stations view ('/stations/xxx-xxx-xxx-xxx-xxx-xxx'):
-![alt text](https://raw.githubusercontent.com/dagthomas/bgrsykkel/master/readme/multiple_stations.jpg "Multiple Stations")
+![alt text](https://raw.githubusercontent.com/dagthomas/bgrbysykkel/master/readme/multiple_stations.jpg "Multiple Stations")
 
 ### List view, select ('/liste'):
-![alt text](https://raw.githubusercontent.com/dagthomas/bgrsykkel/master/readme/select.jpg "Select")
+![alt text](https://raw.githubusercontent.com/dagthomas/bgrbysykkel/master/readme/select.jpg "Select")
 
 ## Installation
 
