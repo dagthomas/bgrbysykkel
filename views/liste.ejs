@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>Braathe BySykkel</title>
+		<link rel="stylesheet" href="/stylesheets/style.css" />
+		<script>
+			function gotoStasjoner() {
+				var loc =
+					'/stasjoner/' +
+					document
+						.getElementById('input')
+						.value.replace(/\s+/g, '')
+						.replace(/,/g, '-');
+				if (loc == '/stasjoner/') {
+					alert('Du har ikke skrevet ned noen IDer');
+				} else {
+					window.location.href = loc;
+				}
+			}
+		</script>
+	</head>
+
+	<body>
+		<div id="ider">
+			<div class="row">
+				<span>
+					<input class="balloon" id="input" type="text" placeholder="Sett inn ID, kommaseparert" /><label
+						for="input"
+						>ID-liste</label
+					>
+					<button onclick="gotoStasjoner()">Velg disse</button>
+				</span>
+			</div>
+		</div>
+		<% if (liste == null) { %>
+		<h2 class="centretitle"><%= title %></h2>
+		<% } %> <% if (liste != null) { %>
+		<div class="list">
+			<% liste.forEach(function(item) { %>
+			<p><strong><%= item.id %></strong> <%= item.title %> - <span>(<%= item.subtitle %>)</span></p>
+			<% }); %>
+		</div>
+		<% } %> <% if (stat != null) { %>
+		<ul>
+			<% stat.forEach(function(station) { %>
+			<li>
+				<div class="ac">
+					<h1><%= station.title %></h1>
+					<h3><%= station.subtitle %></h3>
+					<p>
+						Låser<br />
+						<span><%= station.status.availability.locks %></span>
+					</p>
+					<p>
+						Sykler<br />
+						<span><%= station.status.availability.bikes %></span>
+					</p>
+				</div>
+			</li>
+			<% }); %>
+		</ul>
+		<% } %>
+		<div class="animation-wrapper">
+			<div class="particle particle-1"></div>
+			<div class="particle particle-2"></div>
+			<div class="particle particle-3"></div>
+			<div class="particle particle-4"></div>
+		</div>
+	</body>
+</html>

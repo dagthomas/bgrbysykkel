@@ -1,0 +1,25 @@
+{
+  "name": "bgrbysykkel",
+  "description": "Statusskjermer over bysykler innenfor rekkevidde - enklere måte å sjekke om det finnes ledige sykler/låser - eller om man må kjøpe seg blått tau på biltema.",
+  "version": "1.0.0",
+  "author": "Dag Thomas Olsen",
+  "license": "ISC",
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "keywords": [
+    "Oslo",
+    "sykkel",
+    "bysykkel",
+    "oslybysykkel"
+  ],
+  "dependencies": {
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.9",
+    "ejs": "~2.5.7",
+    "express": "~4.16.0",
+    "http-errors": "~1.6.2",
+    "morgan": "~1.9.0",
+    "node-exec-promise": "^1.0.2"
+  }
+}
