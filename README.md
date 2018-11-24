@@ -22,7 +22,7 @@ npm install
 npm run start
 ```
 
-Site will run om http://localhost:3000
+Site will run @ http://localhost:3000
 
 ## Why BGR Bysykkel?
 
