@@ -22,6 +22,8 @@ npm install
 npm run start
 ```
 
+Site will run om http://localhost:3000
+
 ## Why BGR Bysykkel?
 
 Oslo Bysykkel gives users the opportunity to rent bikes on a daily, or monthy basis.<br> 
