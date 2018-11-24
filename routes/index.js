@@ -2,9 +2,10 @@ var express = require('express');
 var exec = require('node-exec-promise').exec;
 var router = express.Router();
 var fs = require('fs');
+require('dotenv').config();
 
-// Get client-identifier from https://developer.oslobysykkel.no/api
-let id = "Client-Identifier:xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", url = "https://oslobysykkel.no/api/v1/stations/availability";
+// Get client-identifier from https://developer.oslobysykkel.no/api - put in .env file
+let id = process.env.API_KEY, url = process.env.URL;
 
 router.get('/stasjoner/:stasjoner', function(req, res, next) {
 var avail = JSON.parse(fs.readFileSync('avail.json', 'utf8'));
