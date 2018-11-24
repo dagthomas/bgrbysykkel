@@ -1,4 +1,6 @@
 # BGR Bysykkel  v1.0.0
+[Demo site - no live API data/updates](http://bysykkel.ispwbv003.axpa.no/)
+
 
 ### Default view ('/'):
 ![alt text](https://github.com/dagthomas/bgrbysykkel/raw/master/readme/default_site.jpg "Default Site")
