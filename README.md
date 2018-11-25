@@ -24,7 +24,7 @@ Visit https://developer.oslobysykkel.no/api and get an API key, and put it in th
 
 ```shell
 npm install
-npm run start
+npm run build
 ```
 
 Site will run @ http://localhost:3000
