@@ -1,5 +1,5 @@
 # BGR Bysykkel  v1.0.0
-[Demo site [disabled live data]](http://bysykkel.ispwbv003.axpa.no/)
+[Demo site [data refresh every 5 min]](http://bysykkel.ispwbv003.axpa.no/)
 
 
 ### Default view ('/'):
