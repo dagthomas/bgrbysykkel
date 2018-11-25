@@ -1,11 +1,13 @@
 {
   "name": "bgrbysykkel",
   "description": "Statusskjermer over bysykler innenfor rekkevidde - enklere måte å sjekke om det finnes ledige sykler/låser - eller om man må kjøpe seg blått tau på biltema.",
-  "version": "1.0.0",
+  "version": "1.5.2",
   "author": "Dag Thomas Olsen",
   "license": "ISC",
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "node ./bin/www",
+    "build": "webpack -p --progress --mode production --config webpack.config.build.js && node ./bin/www",
+    "dev": "webpack -p --progress --mode development --config webpack.config.build.js --watch && node ./bin/www"
   },
   "keywords": [
     "Oslo",
@@ -14,13 +16,51 @@
     "oslybysykkel"
   ],
   "dependencies": {
+    "@uirouter/angularjs": "latest",
+    "angular": "^1.6.8",
+    "angular-animate": "^1.6.8",
+    "angular-aria": "^1.6.8",
+    "angular-filter": "0.5.17",
+    "angular-material": "^1.1.5",
+    "angular-messages": "^1.6.8",
+    "angular-sanitize": "^1.6.8",
+    "animate.css": "^3.5.2",
+    "consolidate": "^0.15.1",
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.9",
     "dotenv": "^6.1.0",
     "ejs": "~2.5.7",
+    "es5-shim": "^4.5.12",
+    "es6-shim": "^0.35.4",
     "express": "~4.16.0",
     "http-errors": "~1.6.2",
+    "lodash": "4.17.11",
     "morgan": "~1.9.0",
-    "node-exec-promise": "^1.0.2"
+    "node-exec-promise": "^1.0.2",
+    "swig": "^1.4.2",
+    "uglify-js": "^3.1.8"
+  },
+  "devDependencies": {
+    "@babel/core": "7.1.5",
+    "babel-loader": "8.0.4",
+    "babel-plugin-syntax-dynamic-import": "6.18.0",
+    "babel-preset-env": "1.7.0",
+    "clean-webpack-plugin": "0.1.19",
+    "cross-env": "5.2.0",
+    "css-loader": "1.0.1",
+    "file-loader": "2.0.0",
+    "google-fonts-webpack-plugin": "^0.4.3",
+    "html-loader": "^0.5.5",
+    "html-webpack-plugin": "3.2.0",
+    "node-sass": "4.10.0",
+    "postcss-high-contrast": "^1.5.1",
+    "sass-loader": "7.1.0",
+    "serviceworker-webpack-plugin": "^1.0.1",
+    "style-loader": "0.23.1",
+    "url-loader": "1.1.2",
+    "webpack": "4.25.1",
+    "webpack-cli": "3.1.2",
+    "webpack-dev-server": "3.1.10",
+    "webpack-merge": "4.1.4"
   }
 }

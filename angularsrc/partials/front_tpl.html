@@ -1,0 +1,35 @@
+<div>
+	<h2 class="mainTitle sliceme" ui-sref="liste"><a data-cont="{{title}}">{{title}}</a></h2>
+	<ul ng-if="!status.all_stations_closed">
+		<li ng-repeat="station in stations track by station.id" class="fade">
+			<div class="ac">
+				<h1 ng-bind-html="station.title"></h1>
+				<h3 ng-bind-html="station.subtitle.toLowerCase()"></h3>
+				<div>
+				<p>
+					<span ng-bind-html="'Låser'"></span><br />
+					<span class="info" ng-bind-html="station.status.availability.locks" ng-class="{'ingen': station.status.availability.locks === 0, 'lavtAntall': station.status.availability.locks < 6 && station.status.availability.locks != 0}"></span>
+				</p>
+				<p>
+					Sykler<br />
+					<span class="info" ng-bind-html="station.status.availability.bikes" ng-class="{'ingen': station.status.availability.bikes === 0, 'lavtAntall': station.status.availability.bikes < 6 && station.status.availability.bikes != 0}"></span>
+				</p>
+			</div>
+			</div>
+		</li>
+	</ul>
+	
+	<ul ng-if="status.all_stations_closed">
+			<li class="fade">
+				<div class="ac">
+					<h1>Alle stasjoner er stengt</h1>
+				</div>
+			</li>
+		</ul>
+	<div class="animation-wrapper">
+		<div class="particle particle-1"></div>
+		<div class="particle particle-2"></div>
+		<div class="particle particle-3"></div>
+		<div class="particle particle-4"></div>
+	</div>
+</div>

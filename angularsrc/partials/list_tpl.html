@@ -1,0 +1,43 @@
+<div ng-init="loadList()">
+	<!-- <h2 class="centretitle">{{title}}</h2> -->
+	<div class="row sticky">
+		<span>
+			<button ui-sref="front" class="success mr15">&#60; Tilbake til forside</button>
+			<input class="input neutral" type="text" placeholder="Filtrér tittel" ng-model="filterByTitle" />
+			<input class="input neutral" type="text" placeholder="Filtrér undertittel" ng-model="filterBySubtitle" />
+			<input class="input neutral" type="text" placeholder="Filtrér id" ng-model="filterById" />
+		</span>
+	</div>
+
+	<div class="listWrapper">
+		<div class="list">
+			<h1>Alle stasjoner</h1>
+			<div
+				class="ac pointer"
+				ng-repeat="station in allStations | filter: { title: filterByTitle } | filter: { subtitle: filterBySubtitle } | filter: { id: filterById } | orderBy: 'title' track by station.id">
+				<div ng-click="selectStation(station)" class="textContainer">
+					<h3 ng-bind-html="station.id + ' ' + station.title"></h3>
+					<h4 ng-bind-html="station.subtitle.toLowerCase()"></h4>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="stickyValgt">
+		<h1 ng-if="selectedStations.length > 0" ng-click="gotoSystems()">Valgte stasjoner</h1>
+		<h1 ng-if="selectedStations.length == 0">Ingen stasjoner valgt</h1>
+		<p ng-if="selectedStations.length == 0">Velg stasjoner ved å klikke på stasjonen i venstrefeltet.</p>
+		<div class="ac pointer" ng-repeat="station in selectedStations track by $index">
+			<div ng-click="deleteSelectedItem(station.id)" class="textContainer">
+				<h3 ng-bind-html="station.id + ' ' + station.title"></h3>
+				<h4 ng-bind-html="station.subtitle.toLowerCase()"></h4>
+			</div>
+		</div>
+		<p ng-if="selectedStations.length > 6">
+			Det vil ikke bli vist mer enn 6 stasjoner, du har valgt {{ selectedStations.length }}.
+		</p>
+		<div ng-if="selectedStations.length > 0">
+			<button ng-click="gotoSystems()" class="success mr15">Velg disse</button>
+			<button ng-click="emptySelectedStations()" class="error">Tøm liste</button>
+		</div>
+	</div>
+</div>
