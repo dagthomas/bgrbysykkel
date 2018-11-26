@@ -1,7 +1,10 @@
 # BGR Bysykkel  v1.5.2
 [Demo site [data refresh every 5 min] - Oslo](http://bysykkel.ispwbv003.axpa.no/)
+
 [Demo site [data refresh every 5 min] - Trondheim](http://bysykkeltheim.ispwbv003.axpa.no/)
+
 [Demo site [data refresh every 5 min] - Bergen](http://bysykkelbergen.ispwbv003.axpa.no/)
+
 
 ### Default view ('/'):
 ![alt text](https://github.com/dagthomas/bgrbysykkel/raw/master/readme/default_site.jpg "Default Site")
