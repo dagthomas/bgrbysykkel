@@ -2,18 +2,18 @@
 	<h2 class="mainTitle sliceme" ng-click="goto('liste')"><a data-cont="{{title}}">{{title}}</a></h2>
 	<h2 class="mainTitle right hidden" ng-class="{'showPlaces':hovering}" ng-mouseenter="hovering=true" ng-mouseleave="hovering=false"><span ui-sref="front({sted:'oslo'})">oslo</span>, <span ui-sref="front({sted:'bergen'})">bergen</span>, <span ui-sref="front({sted:'trheim'})">trondheim</span></h2>
 	<ul ng-if="!status.all_stations_closed">
-		<li ng-repeat="station in stations track by station.id" class="fade">
+		<li ng-repeat="station in stations track by $index" class="fade">
 			<div class="ac">
-				<h1 ng-bind-html="station.title"></h1>
-				<h3 ng-bind-html="station.subtitle.toLowerCase()"></h3>
+				<h1 ng-bind-html="station.name"></h1>
+				<h3 ng-bind-html="station.address.toLowerCase()"></h3>
 				<div>
 				<p>
 					<span ng-bind-html="'Låser'"></span><br />
-					<span class="info" ng-bind-html="station.status.availability.locks" ng-class="{'ingen': station.status.availability.locks === 0, 'lavtAntall': station.status.availability.locks < 6 && station.status.availability.locks != 0}"></span>
+					<span class="info" ng-bind-html="station.status.num_docks_available" ng-class="{'ingen': station.status.num_docks_available === 0, 'lavtAntall': station.status.num_docks_available < 6 && station.status.num_docks_available != 0}"></span>
 				</p>
 				<p>
 					Sykler<br />
-					<span class="info" ng-bind-html="station.status.availability.bikes" ng-class="{'ingen': station.status.availability.bikes === 0, 'lavtAntall': station.status.availability.bikes < 6 && station.status.availability.bikes != 0}"></span>
+					<span class="info" ng-bind-html="station.status.num_bikes_available" ng-class="{'ingen': station.status.num_bikes_available === 0, 'lavtAntall': station.status.num_bikes_available < 6 && station.status.num_bikes_available != 0}"></span>
 				</p>
 			</div>
 			</div>

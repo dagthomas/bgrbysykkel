@@ -5,15 +5,28 @@ angular.module('GetData', [])
         var deferObject,
             FromOslobysykkel = {
                 
-                getStations: function (id) {
-                    var promise = $http.get('/api/v1/stasjoner/' + id, { cache: false }, { headers: { 'Content-Encoding': 'br, gzip'} }),
+                getStations: function (id, place) {
+                    var url = '';
+                    if(place && place.toLowerCase() !== 'oslo'){
+                        url = '/api/v1/'+place+'/stasjoner/' + id
+                    }else{
+                        url = '/api/v1/stasjoner/' + id
+                    }
+
+                    var promise = $http.get(url, { cache: false }, { headers: { 'Content-Encoding': 'br, gzip'} }),
                         deferObject = deferObject || $q.defer();
 
                     promise.then(function (answer) { deferObject.resolve(answer); }, function (reason) { deferObject.reject(reason); });
                     return deferObject.promise;
                 },
-                getAllStations: function () {
-                    var promise = $http.get('/api/v1/allestasjoner', { cache: false }, { headers: { 'Content-Encoding': 'br, gzip'} }),
+                getAllStations: function (place) {
+                    var url = '';
+                    if(place && place.toLowerCase() !== 'oslo'){
+                        url = '/api/v1/'+place+'/allestasjoner/'
+                    }else{
+                        url = '/api/v1/allestasjoner'
+                    }
+                    var promise = $http.get(url, { cache: false }, { headers: { 'Content-Encoding': 'br, gzip'} }),
                         deferObject = deferObject || $q.defer();
 
                     promise.then(function (answer) { deferObject.resolve(answer); }, function (reason) { deferObject.reject(reason); });
@@ -26,8 +39,14 @@ angular.module('GetData', [])
                     promise.then(function (answer) { deferObject.resolve(answer); }, function (reason) { deferObject.reject(reason); });
                     return deferObject.promise;
                 },
-                getUpdatedFiles: function () {
-                    var promise = $http.get('/api/v1/updatefiles ', { cache: false }, { headers: { 'Content-Encoding': 'br, gzip'} }),
+                getUpdatedFiles: function (place) {
+                    var url = '';
+                    if(place && place.toLowerCase() !== 'oslo'){
+                        url = '/api/v1/'+place+'/updatefiles'
+                    }else{
+                        url = '/api/v1/updatefiles'
+                    }
+                    var promise = $http.get(url, { cache: false }, { headers: { 'Content-Encoding': 'br, gzip'} }),
                         deferObject = deferObject || $q.defer();
 
                     promise.then(function (answer) { deferObject.resolve(answer); }, function (reason) { deferObject.reject(reason); });

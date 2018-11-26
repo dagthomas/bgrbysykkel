@@ -10,21 +10,21 @@ let id = process.env.API_KEY;
 let updateFreq = process.env.UPDATE_FREQUENCY;
 let url = 'https://oslobysykkel.no/api/v1';
 async function getAvail() {
-	return await readFile('avail.json', 'utf8');
+	return await readFile('jsonfiles/avail.json', 'utf8');
 }
 async function getStatus() {
-	return await readFile('status.json', 'utf8');
+	return await readFile('jsonfiles/status.json', 'utf8');
 }
 async function getStations() {
-	return await readFile('stations.json', 'utf8');
+	return await readFile('jsonfiles/stations.json', 'utf8');
 }
 router.get('/api/v1/updatefiles', function(req, res) {
-	fs.stat('avail.json', function(err, stats) {
+	fs.stat('jsonfiles/avail.json', function(err, stats) {
 		let seconds = (new Date().getTime() - stats.mtime) / 1000;
 		if (seconds > updateFreq) {
 			exec('curl -H ' + id + ' ' + url + '/stations/availability').then(
 				function(out) {
-					fs.writeFile('avail.json', out.stdout, 'utf8', function readFileCallback(err) {});
+					fs.writeFile('jsonfiles/avail.json', out.stdout, 'utf8', function readFileCallback(err) {});
 				},
 				function(err) {
 					console.error(err);
@@ -32,12 +32,12 @@ router.get('/api/v1/updatefiles', function(req, res) {
 			);
 		}
 	});
-	fs.stat('status.json', function(err, stats) {
+	fs.stat('jsonfiles/status.json', function(err, stats) {
 		let seconds = (new Date().getTime() - stats.mtime) / 1000;
 		if (seconds > updateFreq) {
 			exec('curl -H ' + id + ' ' + url + '/status').then(
 				function(out) {
-					fs.writeFile('status.json', out.stdout, 'utf8', function readFileCallback(err) {});
+					fs.writeFile('jsonfiles/status.json', out.stdout, 'utf8', function readFileCallback(err) {});
 				},
 				function(err) {
 					console.error(err);
@@ -45,12 +45,12 @@ router.get('/api/v1/updatefiles', function(req, res) {
 			);
 		}
 	});
-	fs.stat('stations.json', function(err, stats) {
+	fs.stat('jsonfiles/stations.json', function(err, stats) {
 		let seconds = (new Date().getTime() - stats.mtime) / 1000;
 		if (seconds > (updateFreq * 280)) {
 			exec('curl -H ' + id + ' ' + url + '/stations').then(
 				function(out) {
-					fs.writeFile('stations.json', out.stdout, 'utf8', function readFileCallback(err) {});
+					fs.writeFile('jsonfiles/stations.json', out.stdout, 'utf8', function readFileCallback(err) {});
 				},
 				function(err) {
 					console.error(err);
@@ -73,7 +73,9 @@ router.get('/api/v1/stasjoner/:stasjoner', function(req, res) {
 			})
 			.then(printJson => {
 				var stasjonsId = req.params.stasjoner.split('-');
-
+				if(stasjonsId.length === 0){
+					stasjonsId = stations.stations[0].id;
+				}
 				var station = [];
 				for (var i = 0, len = stasjonsId.length; i < len; i++) {
 					if (i < 6) {

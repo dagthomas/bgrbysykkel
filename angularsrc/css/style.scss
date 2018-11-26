@@ -667,8 +667,13 @@ li {
 		transform: translateY(-2560px);
 	}
 }
+%rod{
+	color: red; 
+}
+//@extend %rod;
 
 .mainTitle {
+
 	position: absolute;
     bottom: 35px;
     left: 200px;
@@ -679,9 +684,23 @@ li {
 	font-size: 4em;
 	z-index: 999;
 	cursor: pointer;
+	&.right{
+		color: rgba(255,255,255,0);
+		left:initial; 
+		right: 0px; 
+		bottom: 5px; 
+		font-size: 2em; 
+	}
+	&.right span:hover{
+		color: #d1ffb6;	
+	}
 
 }
+.showPlaces{
 
+	color: rgba(255,255,255,0.85)!important;
+
+}
 #ider {
 	position: fixed;
 	z-index: 1000;

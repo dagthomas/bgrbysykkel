@@ -3,8 +3,8 @@
 	<div class="row sticky">
 		<span>
 			<button ng-click="goto('front')" class="success mr15">&#60; Tilbake til forside</button>
-			<input class="input neutral" type="text" placeholder="Filtrér tittel" ng-model="filterByTitle" />
-			<input class="input neutral" type="text" placeholder="Filtrér undertittel" ng-model="filterBySubtitle" />
+			<input class="input neutral" type="text" placeholder="Filtrér navn" ng-model="filterByTitle" />
+			<input class="input neutral" type="text" placeholder="Filtrér adresse" ng-model="filterBySubtitle" />
 			<input class="input neutral" type="text" placeholder="Filtrér id" ng-model="filterById" />
 		</span>
 	</div>
@@ -14,10 +14,10 @@
 			<h1>Alle stasjoner</h1>
 			<div
 				class="ac pointer"
-				ng-repeat="station in allStations | filter: { title: filterByTitle } | filter: { subtitle: filterBySubtitle } | filter: { id: filterById } | orderBy: 'title' track by $index">
+				ng-repeat="station in allStations | filter: { name: filterByTitle } | filter: { address: filterBySubtitle } | filter: { station_id: filterById } | orderBy: 'name' track by $index">
 				<div ng-click="selectStation(station)" class="textContainer">
-					<h3 ng-bind-html="station.id + ' ' + station.title"></h3>
-					<h4 ng-bind-html="station.subtitle.toLowerCase()"></h4>
+					<h3 ng-bind-html="station.station_id + ' ' + station.name"></h3>
+					<h4 ng-bind-html="station.address.toLowerCase()"></h4>
 				</div>
 			</div>
 		</div>
@@ -27,9 +27,9 @@
 		<h1 ng-if="selectedStations.length == 0">Ingen stasjoner valgt</h1>
 		<p ng-if="selectedStations.length == 0">Velg stasjoner ved å klikke på stasjonen i venstrefeltet.</p>
 		<div class="ac pointer" ng-repeat="station in selectedStations track by $index">
-			<div ng-click="deleteSelectedItem(station.id)" class="textContainer">
-				<h3 ng-bind-html="station.id + ' ' + station.title"></h3>
-				<h4 ng-bind-html="station.subtitle.toLowerCase()"></h4>
+			<div ng-click="deleteSelectedItem(station.station_id)" class="textContainer">
+				<h3 ng-bind-html="station.station_id + ' ' + station.name"></h3>
+				<h4 ng-bind-html="station.address.toLowerCase()"></h4>
 			</div>
 		</div>
 		<p ng-if="selectedStations.length > 6">
