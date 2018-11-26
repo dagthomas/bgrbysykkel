@@ -1,22 +1,22 @@
 # BGR Bysykkel  v1.5.2
 [Demo site [data refresh every 5 min]](http://bysykkel.ispwbv003.axpa.no/)
 
-### Default view ('/'):
+### Default view ('/:place'):
 ![alt text](https://github.com/dagthomas/bgrbysykkel/raw/master/readme/default_site.jpg "Default Site")
 
-### Default view ('/') Hidden places (select from Oslo, Bergen, Trondheim):
+### Default view ('/:place') Hidden places (select from Oslo, Bergen, Trondheim):
 ![alt text](https://github.com/dagthomas/bgrbysykkel/raw/master/readme/places.jpg "Places")
 
-### List view ('/liste'):
+### List view ('/:place/liste'):
 ![alt text](https://github.com/dagthomas/bgrbysykkel/raw/master/readme/list_of_stations.jpg "List of Stations")
 
-### List view ('/liste') - Items selected:
+### List view ('/:place/liste') - Items selected:
 ![alt text](https://github.com/dagthomas/bgrbysykkel/raw/master/readme/list_of_stations2.jpg "List of Stations")
 
-### List view ('/liste') - Filter by title:
+### List view ('/:place/liste') - Filter by title:
 ![alt text](https://github.com/dagthomas/bgrbysykkel/raw/master/readme/list_of_stations3.jpg "List of Stations")
 
-### Stations view ('/stations/xxx-xxx-xxx') - Selected items from list:
+### Stations view ('/:place/stations/xxx-xxx-xxx') - Selected items from list:
 ![alt text](https://github.com/dagthomas/bgrbysykkel/raw/master/readme/selected_stations.jpg "Selected Stations")
 
 
