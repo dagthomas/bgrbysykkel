@@ -31,14 +31,6 @@ npm run build
 
 Site will run @ http://localhost:3000
 
-## https://trondheimbysykkel.no/
-
-Exchange files in folders with the ones inside **trheim_bysykkel_exchange_files.7z** - to enable the Trondheim Bysykkel API instead.
-
-## https://bergenbysykkel.no/
-
-Exchange files in folders with the ones inside **bergen_bysykkel_exchange_files.7z** - to enable the Trondheim Bysykkel API instead.
-
 ## Why BGR Bysykkel?
 
 Oslo Bysykkel gives users the opportunity to rent bikes on a daily, or monthy basis.<br> 
