@@ -1,4 +1,4 @@
-# BGR Bysykkel  v1.0.0
+# BGR Bysykkel  v1.5.2
 [Demo site [data refresh every 5 min]](http://bysykkel.ispwbv003.axpa.no/)
 
 
